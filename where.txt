@@ -1,0 +1,6 @@
+$users = DB::table('users')
+            ->where(function ($query) {
+                $query->where('name', 'John')
+                      ->orWhere('name', 'Jane');
+            })
+            ->get();

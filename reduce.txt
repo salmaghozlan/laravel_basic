@@ -1,0 +1,7 @@
+$collection = collect([1, 2, 3, 4, 5]);
+
+$reduced = $collection->reduce(function ($carry, $item) {
+    return $carry + $item;
+});
+
+// Output: 15

@@ -1,0 +1,42 @@
+
+// Get all records
+$users = User::all();
+
+// Get a single record by primary key
+$user = User::find(1);
+
+// Get a single record by a specific attribute
+$user = User::where('email', 'johndoe@example.com')->first();
+
+// Get a collection of records that match a condition
+$admins = User::where('role', 'admin')->get();
+
+
+// Create a new record
+$user = new User();
+$user->name = 'John Doe';
+$user->email = 'johndoe@example.com';
+$user->password = bcrypt('secret');
+$user->save();
+
+// Create a new record with mass assignment
+$user = User::create([
+    'name' => 'John Doe',
+    'email' => 'johndoe@example.com',
+    'password' => bcrypt('secret'),
+]);
+
+// Update a single record by primary key
+$user = User::find(1);
+$user->name = 'Jane Doe';
+$user->save();
+
+// Update multiple records that match a condition
+User::where('role', 'admin')->update(['is_active' => true]);
+
+// Delete a single record by primary key
+$user = User::find(1);
+$user->delete();
+
+// Delete multiple records that match a condition
+User::where('role', 'editor')->delete();

@@ -1,0 +1,7 @@
+$collection = collect([1, 2, 3, 4, 5]);
+
+$mapped = $collection->map(function ($item, $key) {
+    return $item * 2;
+});
+
+// Output: [2, 4, 6, 8, 10]
